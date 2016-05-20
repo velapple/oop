@@ -1,0 +1,63 @@
+// ConsoleApplication1.cpp: определяет точку входа для консольного приложения.
+//
+//функции контейнера stack вместо пользовательских функций. Использование стандартных средств C++ позволило заметно сократить общий объем программы, и тем самым упростить листинг.
+
+#include "stdafx.h"
+#include <iostream>
+#include <stack>
+using namespace std;
+//главная функция
+void main()
+{
+stack <int> stack1; //создание стека stack типа int
+char number; int value; //стек ограничен только памятью компьютера
+do
+{
+cout<<"1. Add element"<<endl;
+cout<<"2. Delete element"<<endl;
+cout<<"3. Show top element"<<endl;
+cout<<"4. Show stack size"<<endl;
+cout<<"5. Clear stack"<<endl;
+cout<<"0. End"<<endl;
+cout<<"Command number > "; cin>>number;
+switch (number)
+{
+case '1': //добавление элемента
+cout<<"Value > "; cin>>value;
+stack1.push(value); cout<<endl<<"Element has been added into stack\n\n";
+break;
+//-----------------------------------------------
+case '2': //удаление элемента
+if (stack1.empty()==true) cout<<"\nStack is empty\n\n";
+else
+{
+	stack1.pop(); cout<<endl<<"Element has been removed from stack\n\n";
+} break;
+//-----------------------------------------------
+case '3': //вывод верхнего элемента
+if (stack1.empty()==true) cout<<"\nStack is empty\n\n";
+else cout<<"\nTop element: "<<stack1.top()<<"\n\n";
+break;
+//-----------------------------------------------
+case '4': //вывод размера стека
+if (stack1.empty()==true) cout<<"\nStack is empty\n\n";
+else cout<<"\nStack size is: "<<stack1.size()<<"\n\n";
+break;
+//-----------------------------------------------
+case '5': //очистка памяти стека
+if (stack1.empty()==true) cout<<"\nStack is empty\n\n";
+else 
+{
+	while(!stack1.empty()) {stack1.pop();}
+	cout<<"\nStack memory was cleared\n\n";
+} break;
+//-----------------------------------------------
+case '0': break; //выход
+default: cout<<endl<<"Undefined command\n\n";
+break;
+}
+} while(number!='0');
+
+system("pause");
+}
+

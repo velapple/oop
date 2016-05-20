@@ -1,0 +1,46 @@
+// ConsoleApplication4.cpp: определяет точку входа для консольного приложения.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include <stdio.h>
+#include <time.h>
+#include <string>
+
+using namespace std;
+
+class t_and__d
+{
+private:
+	int month, day, year;
+	int hours, minutes;
+
+public:
+
+	t_and__d(int m, int d, int y, int h, int min){
+		month = m;
+		day = d;
+		year = y;
+		hours = h;
+		minutes = min;
+	}
+
+	void t_and__d::Display(int m, int d, int y, int h, int min)
+	{
+		month = m;
+		day = 0;
+		year = y;
+		hours = h;
+		minutes = min;
+		cout << month << " " << day << ", " << year << endl;
+		cout << hours << " " << minutes << ", " << endl;
+	};
+
+	int main()
+	{
+		t_and__d dt(7, 4, 1776, 2, 12);
+		dt.Display(7, 4, 1776, 2, 12);
+		system("pause");
+		return 0;
+	}
+};
